@@ -50,7 +50,7 @@ const people = [
     'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
 ];
 
-const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
 
 const resultForEx1 = inventors.filter(inventor => inventor.year > 1499 && inventor.year < 1600);
 const resultForEx2 = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
@@ -58,6 +58,17 @@ const resultForEx3 = inventors.sort((a, b) => a.year - b.year);
 const resultForEx4 = inventors.reduce((acc, inventor) => acc + (inventor.passed - inventor.year), 0);
 const resultForEx5 = inventors.sort((a, b) => (a.passed - a.year) - (b.passed - b.year));
 const resultForEx6 = Array.from(document.querySelectorAll(".mw-category-group a")).map(blv => blv.textContent).filter(blv => blv.toLowerCase().includes(" de "));
+const resultForEx7 = people.sort()
+const resultForEx8 = data.reduce((obj, item) => {
+    obj[item] ? obj[item]++ : obj[item] = 1;
+    return obj;
+}, {})
 
+console.log(resultForEx8);
 
-console.log(resultForEx7)
+const resultForEx8_2 = {};
+for(const item of data) {
+    resultForEx8_2[item] ? resultForEx8_2[item]++ : resultForEx8_2[item] = 1;
+}
+
+console.log(resultForEx8_2);
