@@ -12,9 +12,13 @@ fetch(endpoint)
 })
 
 search.addEventListener("input", (e) => {
-    suggestions.innerHTML = "";
-    let preview = sortedData.filter(city => city[0].toLowerCase().includes(`${e.target.value.toLowerCase()}`) || city[1].toLowerCase().includes(`${e.target.value.toLowerCase()}`));
-    preview.forEach(suggestion => {
-        suggestions.innerHTML += `<li>${suggestion[0]}, ${suggestion[1]} <span>${suggestion[2]}</span></li>`
-    })
+    if(e.target.value.length < 1){
+        suggestions.innerHTML = "<li>Filter for a city</li><li>or a state</li>"; 
+    }
+    else{suggestions.innerHTML = "";
+        let preview = sortedData.filter(city => city[0].toLowerCase().includes(`${e.target.value.toLowerCase()}`) || city[1].toLowerCase().includes(`${e.target.value.toLowerCase()}`));
+        preview.forEach(suggestion => {
+            suggestions.innerHTML += `<li>${suggestion[0]}, ${suggestion[1]} <span>${suggestion[2]}</span></li>`
+        })
+    }
 })
